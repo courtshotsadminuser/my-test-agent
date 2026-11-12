@@ -79,6 +79,7 @@ def run_agent(user_message: str) -> str:
             if call.name != "calculate_study_hours":
                 raise ValueError(f"Unknown tool: {call.name}")
 
+            print(f"Tool called: {call.name} with {call.arguments}")
             args = json.loads(call.arguments)
             result = calculate_study_hours(**args)
 
